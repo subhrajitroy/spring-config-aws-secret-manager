@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor:2.5.6"
+    implementation group: 'com.amazonaws', name: 'aws-java-sdk-secretsmanager', version: '1.12.96'
+    implementation group: 'org.springframework.cloud', name: 'spring-cloud-aws-context', version: '2.2.6.RELEASE'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.5.6'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.5.6'
+    implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter', version: '3.0.4'
+    implementation group: 'org.springframework.cloud', name: 'spring-cloud-config-server', version: '3.0.5'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+application{
+    mainClass = 'com.spring.config.Application'
+}
+
+test {
+    useJUnitPlatform()
+}

@@ -1,0 +1,33 @@
+server:
+  port: 8585
+spring:
+  security:
+    user:
+      name: admin
+      password: admin
+  profiles:
+    active: vault, git, dev, aws
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/subhrajitroy/demo-config-repo.git
+          order: 2
+          clone-on-start: true
+        vault:
+          host: 127.0.0.1
+          port: 8200
+          order: 1
+#          token: "000-0000"
+          scheme: "http"
+          kv-version: 2
+        aws:
+          region: "ap-south-1"
+          secret-name: "prod/creds"
+  application:
+    name: "demo"
+  main:
+    allow-bean-definition-overriding: true
+#logging:
+#  level:
+#    root: TRACE
