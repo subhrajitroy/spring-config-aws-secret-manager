@@ -1,0 +1,1 @@
+# spring-config-aws-secret-manager
